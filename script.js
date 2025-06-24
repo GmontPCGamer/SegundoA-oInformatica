@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Menú hamburguesa para móviles
+// Menú robado de por ahi :v
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');

@@ -345,10 +345,32 @@ body.dark-theme {
 .geometric-shape {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, var(--evangelion-purple), var(--evangelion-green));
+    background: transparent;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    animation: float 6s ease-in-out infinite;
+    animation: rotate-shape 6s linear infinite;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 8px solid #2196f3; /* Azul */
+    box-shadow: 0 0 0 12px #10b981; /* Verde */
+}
+
+.diamond-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: inherit;
+    z-index: 1;
+}
+
+@keyframes rotate-shape {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .geometric-shape::before {
@@ -458,6 +480,28 @@ body.dark-theme {
 .about-image {
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 220px;
+}
+
+/* Imagen de perfil circular en la sección Sobre Mí */
+.profile-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--evangelion-purple);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    display: block;
+    margin: 0 auto;
+    background: var(--bg-secondary-light);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.dark-theme .profile-image {
+    border: 6px solid var(--evangelion-green);
+    box-shadow: 0 4px 20px var(--shadow-dark);
+    background: var(--bg-secondary-dark);
 }
 
 .image-placeholder {
@@ -627,9 +671,17 @@ body.dark-theme {
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-info {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .contact-info h3 {
@@ -651,6 +703,7 @@ body.dark-theme {
 .contact-items {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
     margin-bottom: 2rem;
 }
@@ -674,7 +727,9 @@ body.dark-theme {
 
 .social-links {
     display: flex;
+    justify-content: center;
     gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .social-link {
